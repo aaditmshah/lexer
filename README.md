@@ -81,7 +81,7 @@ The generated lexer may be used as a custom scanner for Jison. Actions must retu
 
 ```javascript
 var Parser = require("jison").Parser;
-var Lexer = require("lex").Lexer;
+var Lexer = require("lex");
 
 var grammar = {
     "bnf": {
