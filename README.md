@@ -104,5 +104,5 @@ lexer.addRule(/$/, function () {
     return "EOF";
 });
 
-parser.parse("2 + 3");
+parser.parse("2");
 ```
