@@ -1,5 +1,5 @@
 {
-    "name": "lexer",
+    "name": "lex",
     "description": "An elegant armor-plated JavaScript lexer modelled after flex. Easily extensible to tailor to your need for perfection.",
     "version": "1.1.1",
     "keywords": ["lexer"],
