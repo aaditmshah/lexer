@@ -26,26 +26,18 @@ lexer.addRule(/[a-f\d]+/i, function (lexeme) {
 });
 ```
 
-After adding rules to the lexer you may set the property `input` of the lexer to any string that you wish to tokenize and then call the method `lex`. The function returns the first non `undefined` value returned by an action. Else it returns `undefined` if it scans the entire input string. On calling `lex` it starts scanning where it last left off.
+After adding rules to the lexer you may set the property `input` of the lexer to any string that you wish to tokenize and then call the method `lex`. The function returns the first non `undefined` value returned by an action. Else it returns `undefined` if it scans the entire input string. On calling `lex` it starts scanning where it last left off. The `addRule` and `setInput` methods of the lexer support chaining.
 
 ```javascript
 var lines = 0;
 var chars = 0;
 
-var lexer = new Lexer;
-
-lexer.addRule(/\n/, function () {
+(new Lexer).addRule(/\n/, function () {
     lines++;
     chars++;
-});
-
-lexer.addRule(/./, function () {
+}).addRule(/./, function () {
     chars++;
-});
-
-lexer.input = "Hello World!";
-
-lexer.lex();
+}).setInput("Hello World!").lex();
 ```
 
 If the lexer can't match any pattern then it executes the default rule which matches the next character in the input string. The default action may be specified as an argument to the constructor. Setting the property `reject` on the `this` object in an action to `true` tells the lexer to reject the current rule and match the next best rule.
