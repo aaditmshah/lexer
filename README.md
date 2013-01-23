@@ -100,3 +100,29 @@ lexer.addRule(/$/, function () {
 
 parser.parse("2");
 ```
+
+Starting from v1.6.0 you can return multiple values from an action by returning an array. The elements of the array will be returned individually by the `lex` method. This allows you to implement features like [python style indentation](http://docs.python.org/release/2.5.1/ref/indentation.html "2.1.8 Indentation") as follows:
+
+```javascript
+var indent = [0];
+
+var lexer = new Lexer;
+
+lexer.addRule(/^[\t ]*/, function (lexeme) {
+    var indentation = lexeme.length;
+
+    if (indentation > indent[0]) {
+        indent.unshift(indentation);
+        return "INDENT";
+    }
+
+    var tokens = [];
+
+    while (indentation < indent[0]) {
+        tokens.push("DEDENT");
+        indent.shift();
+    }
+
+    if (tokens.length) return tokens;
+});
+```
