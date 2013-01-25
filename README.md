@@ -126,3 +126,25 @@ lexer.addRule(/^[\t ]*/, function (lexeme) {
     if (tokens.length) return tokens;
 });
 ```
+
+## Global Patterns ##
+
+Sometimes you may wish to match a pattern which need not necessarily generate the longest possible string. Since the scanner sorts the matched strings according to their length there's no way to do so. Hence in v1.7.0 I introduced global patterns. Strings matching these patterns are never sorted. This allows you to match a shorter strings before longer ones:
+
+```javascript
+var lexer = new Lexer;
+
+lexer.addRule(/^ */gm, function (lexeme) {
+    console.log(lexeme.length);
+});
+
+lexer.addRule(/[0-9]+/, function (lexeme) {
+    console.log(lexeme);
+});
+
+lexer.setInput("37");
+
+lexer.lex();
+```
+
+The above program first logs the number of spaces at the beginning of the line (`0`) and then the number `37` although the length of the string `"37"` is greater than the empty string `""`. This is because it's the first rule and the `global` flag for its pattern is set.
