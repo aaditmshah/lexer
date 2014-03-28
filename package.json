@@ -1,18 +1,18 @@
 {
     "name": "lex",
     "description": "An elegant armor-plated JavaScript lexer modelled after flex. Easily extensible to tailor to your need for perfection.",
-    "version": "1.7.4",
+    "version": "1.7.5",
     "keywords": ["lex", "lexer", "lexical", "analysis", "scan", "scanner", "scanning", "token", "tokenize", "tokenizer", "tokenization", "flex", "jison"],
-    "author": "Aadit M Shah (http://aaditmshah.github.com/) <aaditmshah@myopera.com>",
-    "main": "lib/lexer.js",
+    "author": "Aadit M Shah (http://aaditmshah.github.com/) <aaditmshah@fastmail.fm>",
+    "main": "lexer.js",
     "maintainers": [{
         "name": "Aadit M Shah",
-        "email": "aaditmshah@myopera.com",
+        "email": "aaditmshah@fastmail.fm",
         "web": "http://aaditmshah.github.com/"
     }],
     "contributors": [{
         "name": "Aadit M Shah",
-        "email": "aaditmshah@myopera.com",
+        "email": "aaditmshah@fastmail.fm",
         "web": "http://aaditmshah.github.com/"
     }],
     "bugs": "https://github.com/aaditmshah/lexer/issues",
