@@ -8,6 +8,8 @@ Lexer may be installed on [node.js](http://nodejs.org/ "node.js") via the [node 
 
 You may also install it on [RingoJS](http://ringojs.org/ "Home - RingoJS") using the command `ringo-admin install aaditmshah/lexer`.
 
+You may install it for web apps using the [bower](http://bower.io/ "Bower - A package manager for the web") command `bower install lexer`.
+
 You may install it as a [component](https://github.com/component/component "component/component") for web apps using the command `component install aaditmshah/lexer`.
 
 ## Usage ##

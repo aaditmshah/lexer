@@ -1,0 +1,26 @@
+{
+  "name": "lexer",
+  "main": "lexer.js",
+  "version": "1.7.6",
+  "homepage": "https://github.com/aaditmshah/lexer",
+  "authors": [
+    "Aadit M Shah (http://aaditmshah.github.com/) <aaditmshah@fastmail.fm>"
+  ],
+  "description": "An elegant armor-plated JavaScript lexer modelled after flex. Easily extensible to tailor to your need for perfection.",
+  "keywords": [
+    "lex",
+    "lexer",
+    "lexical",
+    "analysis",
+    "scan",
+    "scanner",
+    "scanning",
+    "token",
+    "tokenize",
+    "tokenizer",
+    "tokenization",
+    "flex",
+    "jison"
+  ],
+  "license": "MIT"
+}
