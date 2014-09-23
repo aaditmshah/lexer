@@ -8,7 +8,7 @@ function Lexer(defunct) {
     if (typeof defunct !== "function") defunct = Lexer.defunct;
 
     var tokens = [];
-    var rules = [];
+    var rules = this.rules = [];
     var remove = 0;
     this.state = 0;
     this.index = 0;
@@ -26,7 +26,7 @@ function Lexer(defunct) {
 
         if (Object.prototype.toString.call(start) !== "[object Array]") start = [0];
 
-        rules.push({
+        this.rules.push({
             pattern: pattern,
             global: global,
             action: action,
@@ -107,8 +107,8 @@ function Lexer(defunct) {
         var lastIndex = this.index;
         var input = this.input;
 
-        for (var i = 0, length = rules.length; i < length; i++) {
-            var rule = rules[i];
+        for (var i = 0, length = this.rules.length; i < length; i++) {
+            var rule = this.rules[i];
             var start = rule.start;
             var states = start.length;
 
@@ -139,6 +139,15 @@ function Lexer(defunct) {
                 }
             }
         }
+
+        this.look = function() {
+            var lexer = new Lexer;
+            lexer.state = this.state;
+            lexer.index = this.index;
+            lexer.input = this.input;
+            lexer.rules = this.rules;
+            return lexer.lex();
+        };
 
         return matches;
     }
