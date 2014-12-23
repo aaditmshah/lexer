@@ -38,6 +38,7 @@ function Lexer(defunct) {
 
     this.setInput = function (input) {
         remove = 0;
+        tokens = [];
         this.state = 0;
         this.index = 0;
         this.input = input;
