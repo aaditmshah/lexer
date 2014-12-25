@@ -1,7 +1,7 @@
 {
   "name": "lexer",
   "main": "lexer.js",
-  "version": "1.7.7",
+  "version": "1.7.8",
   "homepage": "https://github.com/aaditmshah/lexer",
   "authors": [
     "Aadit M Shah (http://aaditmshah.github.com/) <aaditmshah@fastmail.fm>"
