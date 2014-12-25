@@ -2,7 +2,7 @@
     "name": "lex",
     "repo": "aaditmshah/lexer",
     "description": "An elegant armor-plated JavaScript lexer modelled after flex. Easily extensible to tailor to your need for perfection.",
-    "version": "1.7.7",
+    "version": "1.7.8",
     "keywords": ["lex", "lexer", "lexical", "analysis", "scan", "scanner", "scanning", "token", "tokenize", "tokenizer", "tokenization", "flex", "jison"],
     "main": "lexer.js",
     "scripts": ["lexer.js"],
