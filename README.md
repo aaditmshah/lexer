@@ -110,7 +110,7 @@ var indent = [0];
 
 var lexer = new Lexer;
 
-lexer.addRule(/^[\t ]*/, function (lexeme) {
+lexer.addRule(/^[\t ]*/gm, function (lexeme) {
     var indentation = lexeme.length;
 
     if (indentation > indent[0]) {
