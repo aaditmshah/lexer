@@ -3,6 +3,16 @@ if (typeof module === "object" && typeof module.exports === "object") module.exp
 Lexer.defunct = function (chr) {
     throw new Error("Unexpected character at index " + (this.index - 1) + ": " + chr);
 };
+try {
+    Lexer.engineHasStickySupport = typeof /(?:)/.sticky == 'boolean';
+} catch (ignored) {
+    Lexer.engineHasStickySupport = false;
+}
+try {
+    Lexer.engineHasUnicodeSupport = typeof /(?:)/.unicode == 'boolean';
+} catch (ignored) {
+    Lexer.engineHasUnicodeSupport = false;
+}
 
 function Lexer(defunct) {
     if (typeof defunct !== "function") defunct = Lexer.defunct;
@@ -17,10 +27,11 @@ function Lexer(defunct) {
     this.addRule = function (pattern, action, start) {
         var global = pattern.global;
 
-        if (!global) {
-            var flags = "g";
+        if (!global || Lexer.engineHasStickySupport && !pattern.sticky) {
+            var flags = Lexer.engineHasStickySupport ? "gy" : "g";
             if (pattern.multiline) flags += "m";
             if (pattern.ignoreCase) flags += "i";
+            if (Lexer.engineHasUnicodeSupport && pattern.unicode) flags += "u";
             pattern = new RegExp(pattern.source, flags);
         }
 
