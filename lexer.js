@@ -47,6 +47,37 @@ function Lexer(defunct) {
         return this;
     };
 
+	this.removeRule = function (pattern) {
+		var index = -1;
+		var global = pattern.global;
+
+        if (!global) {
+            var flags = "g";
+            if (pattern.multiline) flags += "m";
+            if (pattern.ignoreCase) flags += "i";
+            pattern = new RegExp(pattern.source, flags);
+        }
+
+		for (var i = 0; i < rules.length; i++) {
+			if (rules[i].pattern.source == pattern.source &&
+				rules[i].pattern.global == pattern.global &&
+				rules[i].pattern.multiline == pattern.multiline &&
+				rules[i].pattern.ignoreCase == pattern.ignoreCase
+				) {
+				index = i;
+				break;
+			}
+		}
+
+		if (index >= 0) {
+			rules.splice(index, 1);
+		} else {
+			throw new Error("Unable to locate a rule with that pattern");
+		}
+
+		return this;
+	};
+
     this.setInput = function (input) {
         remove = 0;
         this.state = 0;
